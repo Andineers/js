@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="col">
-          <img src="image/cloudWind.png" alt="wind spgiteed" />
+          <img src="image/cloudWind.png" alt="wind speed" />
           <div>
             <p class="wind">15 km/h</p>
             <p>Wind Speed</p>
@@ -39,19 +39,7 @@
       </div>
     </div>
 
-<script>
-
-const apikey ="9f3fbffc5df59cc56e78bf87365f81ca";
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=germany&appid="
-
-async function checkWeather(){
-  const response = await fetch(apiUrl + apikey);
-  var data = await response.json();
-
-  console.log(data);
-}
-
-</script>
+<script src="main.js"></script>
 
   </body>
 </html>
