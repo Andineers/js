@@ -1,41 +1,23 @@
 const questions = [
     {
-        questions: "which is larget animal in the wordl?",
+        question: "Which is the largest animal in the world?",
         answers: [
-            { text: "shark", correct: false},
-            { text: "Blue whale", correct: true},
-            { text: "Elephant", correct: false},
-            { text: "Giraffe", correct: false},
+            { text: "Shark", correct: false },
+            { text: "Blue Whale", correct: true },
+            { text: "Elephant", correct: false },
+            { text: "Giraffe", correct: false },
         ]
     },
     {
-        questions: "which is larget animal in the wordl?",
+        question: "Which is the smallest continent in the world?",
         answers: [
-            { text: "shark", correct: false},
-            { text: "Blue whale", correct: true},
-            { text: "Elephant", correct: false},
-            { text: "Giraffe", correct: false},
-        ]
-    },
-    {
-        questions: "which is larget animal in the wordl?",
-        answers: [
-            { text: "shark", correct: false},
-            { text: "Blue whale", correct: true},
-            { text: "Elephant", correct: false},
-            { text: "Giraffe", correct: false},
-        ]
-    },
-    {
-        questions: "Which is the smallest continent in the world?",
-        answers: [
-            { text: "Asia", correct: false},
-            { text: "Australia", correct: true},
-            { text: "Arctic", correct: false},
-            { text: "Africa", correct: false},
+            { text: "Asia", correct: false },
+            { text: "Australia", correct: true },
+            { text: "Arctic", correct: false },
+            { text: "Africa", correct: false },
         ]
     }
-]; 
+];
 
 const questionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer-buttons");
@@ -48,20 +30,74 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
+    //  nextButton.style.display = "none"
     showQuestion();
 }
 
 function showQuestion() {
+
+    // resetState();
+    answerButton.innerHTML = "";
+
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.questions;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-    currentQuestion.answers.forEach(answer -> {
+    currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
-        answerButton.appendChild(button)
+        button.addEventListener("click", () => selectAnswer(answer));
+        answerButton.appendChild(button);
+      
+        if(answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer)
     });
 }
+
+
+function resetState() {
+    nextButton.style.display = "none";
+    while(answerButton.firstChild) {
+        answerButton.removeChild(answerButton.firstChild);
+    }
+}
+
+function selectAnswer(answer) {
+    const selectedBtn = answer.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if(isCorrect) {
+        selectedBtn.classList.add("correct");
+    } else {
+        selectedBtn.classList.add("incorrect");
+    }
+    Array.from(answerButton.children).forEach(button =>)
+}
+
+
+// function selectAnswer(answer) {
+//     if (answer.correct) {
+//         score++;
+//         alert("Correct answer!");
+//     } else {
+//         alert("Wrong answer!");
+//     }
+
+//     currentQuestionIndex++;
+
+//     if (currentQuestionIndex < questions.length) {
+//         // nextButton.style.display = "block";
+//         // nextButton.onclick = () => {
+//         // nextButton.style.display = "none";
+//         showQuestion();
+//     } else {
+//         alert("Quiz finished! Your score is: " + score);
+//         nextButton.innerHTML = "Restart";
+//         nextButton.addEventListener("click", startQuiz);
+//         // nextButton.onclick = startQuiz;
+//     }
+// }
 
 startQuiz();

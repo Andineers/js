@@ -88,3 +88,11 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+.correct {
+  background: #9aeabc;
+}
+
+.incorrect {
+  background: rgb(239, 62, 62);
+}
