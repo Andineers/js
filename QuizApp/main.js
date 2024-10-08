@@ -1,20 +1,47 @@
 const questions = [
     {
-        question: "Which is the largest animal in the world?",
+        question: "Manakah dari pertanyaan berikut yang benar menegai variabel di Javascript?",
         answers: [
-            { text: "Shark", correct: false },
-            { text: "Blue Whale", correct: true },
-            { text: "Elephant", correct: false },
-            { text: "Giraffe", correct: false },
+            { text: "Variabel di JavaScript harus dideklarasikan dengan tipe data", correct: false },
+            { text: "Variabel di JavaScript hanya dapat menyimpan tipe data angka", correct: false },
+            { text: "Variabel di JavaScript dapat menyimpan berbagai tipe data tanpa deklarasi tipe", correct: true },
+            { text: "Variabel di JavaScript tidak bisa diubah setelah dideklarasikane", correct: false },
         ]
     },
     {
-        question: "Which is the smallest continent in the world?",
+        question: "Fungsi console.log() dalam JavaScript digunakan untuk?",
         answers: [
-            { text: "Asia", correct: false },
-            { text: "Australia", correct: true },
-            { text: "Arctic", correct: false },
-            { text: "Africa", correct: false },
+            { text: "Menampilkan output di layar", correct: false },
+            { text: "Menampilkan pesan di konsol browser", correct: true },
+            { text: "Menulis data ke file", correct: false },
+            { text: "Membuat elemen HTML baru", correct: false },
+        ]
+    },
+    {
+        question: "Jika ada dua variabel satu berisi angka 5 dan satu lagi berisi string'5', apa yang akan terjadi jika kedua variabel tersebut dibandingkan menggunakan operator == ?",
+        answers: [
+            { text: "true", correct: true },
+            { text: "false", correct: false },
+            { text: "undefined", correct: false },
+            { text: "null", correct: false },
+        ]
+    },
+    {
+        question: "Manakah dari berikut ini adalah cara yang benar untuk membuat fungsi di JavaScript?",
+        answers: [
+            { text: "function myFunction {}", correct: false },
+            { text: "function: myFunction()", correct: false },
+            { text: "function myFunction() {}", correct: true },
+            { text: "func myFunction() {}", correct: false },
+        ]
+    },
+    {
+        question: "Bagaimana cara mendeklarasikan array di JavaScript?",
+        answers: [
+            { text: "let arr = (1, 2, 3);", correct: false },
+            { text: "let arr = <1, 2, 3>;", correct: false },
+            { text: "let arr = {1, 2, 3};", correct: false },
+            { text: "let arr = [1, 2, 3];", correct: true },
         ]
     }
 ];
